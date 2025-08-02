@@ -128,10 +128,10 @@ print("✅ Apropriação concluída com sucesso! Arquivo salvo como 'resultado_a
 
 📌 Exemplo de saída
 > - A planilha final mostrará:
-> - Cada nota fiscal (NF) com seu valor original
-> - O valor apropriado de cada cheque
-> - Qual cheque foi usado em qual nota
-> - Células mescladas para facilitar a leitura dos cheques que cobrem múltiplas NFs\
+> - Cada nota fiscal (NF) com seu valor original;
+> - O valor apropriado de cada cheque;
+> - Qual cheque foi usado em qual nota;
+> - Células mescladas para facilitar a leitura dos cheques que cobrem múltiplas NFs.
 
 
 ⚠️ Aviso
@@ -143,5 +143,5 @@ Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um
 - `pandas` — para manipulação de dados
 - `openpyxl` — para leitura e edição de arquivos Excel
 
-python · pandas · openpyxl · excel · automação · financeiro · notas fiscais · cheques · apropriação
+#python · #pandas · #openpyxl · #excel · #automação · #financeiro · #notas fiscais · #cheques · #apropriação
 

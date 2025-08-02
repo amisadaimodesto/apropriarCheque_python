@@ -25,7 +25,6 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 
 3. Execute o script abaixo:
-
 ```python
 import pandas as pd
 from openpyxl import load_workbook

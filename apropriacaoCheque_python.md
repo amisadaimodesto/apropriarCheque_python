@@ -25,7 +25,12 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 
 3. Execute o script abaixo:
-  <pre> \```python # from openpyxl.utils import get_column_letter
+## 💻 Código-fonte
+
+```python
+import pandas as pd
+from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
 # Leitura dos dados com nomes de colunas originais
@@ -115,8 +120,8 @@ else:
 
 wb.save(output_file)
 
-print("✅ Apropriação concluída com sucesso! Arquivo salvo como 'resultado_apropriacao.xlsx'") \``` </pre>
-
+print("✅ Apropriação concluída com sucesso! Arquivo salvo como 'resultado_apropriacao.xlsx'")
+```
 
 4. O arquivo *resultado_apropriacao.xlsx* será gerado com os valores apropriados.
 
@@ -139,3 +144,4 @@ Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um
 - `openpyxl` — para leitura e edição de arquivos Excel
 
 python · pandas · openpyxl · excel · automação · financeiro · notas fiscais · cheques · apropriação
+

@@ -18,18 +18,18 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 1. Instale as dependências (ou apenas execute o código no compilador de sua escolha (testado no Google Colab com sucesso):
    ```bash
-   pip install pandas openpyxl
+   pip install pandas openpyxl \
 
 
 2. Coloque os arquivos *notas.xlsx* e *cheques.xlsx* na mesma pasta do script (*ou faça o upload dos arquivos no Google Colab*).\
-\
+
 
 3. Execute o script:
   *python apropriacao.py*\
-\
+
 
 4. O arquivo *resultado_apropriacao.xlsx* será gerado com os valores apropriados.\
-\
+
 
 📌 Exemplo de saída
 > - A planilha final mostrará:
@@ -37,7 +37,7 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 > - O valor apropriado de cada cheque
 > - Qual cheque foi usado em qual nota
 > - Células mescladas para facilitar a leitura dos cheques que cobrem múltiplas NFs\
-\
+
 
 ⚠️ Aviso
 Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um alerta no console:

@@ -25,7 +25,7 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 3. Execute o script:
   *python apropriacao.py*
 
-4. O arquivo ** resultado_apropriacao.xlsx ** será gerado com os valores apropriados.
+4. O arquivo *resultado_apropriacao.xlsx* será gerado com os valores apropriados.
 
 📌 Exemplo de saída
 > - A planilha final mostrará:

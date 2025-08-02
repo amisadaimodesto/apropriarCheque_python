@@ -25,7 +25,6 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 
 3. Execute o script abaixo:
-## 💻 Código-fonte
 
 ```python
 import pandas as pd

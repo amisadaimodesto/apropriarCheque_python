@@ -39,19 +39,12 @@ Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um
     `⚠️ Cheques insuficientes. Algumas NFs podem não ter sido totalmente apropriadas.`
 
 📚 Bibliotecas utilizadas
-`pandas` — para manipulação de dados
-`openpyxl` — para leitura e edição de arquivos Excel
+- `pandas` — para manipulação de dados
+- `openpyxl` — para leitura e edição de arquivos Excel
 
 python · pandas · openpyxl · excel · automação · financeiro · notas fiscais · cheques · apropriação
 
-
 ---
-
-Se quiser, posso também:
-
-- Gerar o arquivo `LICENSE` padrão MIT
-- Inserir comentários didáticos no código Python
-- Criar um `.gitignore` adequado para projeto Python com arquivos Excel
 
 📄 Licença
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.

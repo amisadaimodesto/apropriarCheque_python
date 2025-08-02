@@ -7,8 +7,8 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 ## 📂 Entrada esperada
 
-- * notas.xlsx * : contendo as colunas `Número NF` e `Valor`
-- * cheques.xlsx * : contendo as colunas `Número Cheque` e `Valor`
+- *notas.xlsx* : contendo as colunas `Número NF` e `Valor`
+- *cheques.xlsx* : contendo as colunas `Número Cheque` e `Valor`
 
 > As colunas podem conter espaços ou letras maiúsculas — o script padroniza automaticamente.
 
@@ -16,7 +16,7 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 ## ⚙️ Como usar
 
-1. Instale as dependências:
+1. Instale as dependências (ou apenas execute o código no compilador de sua escolha (testado no Google Colab com sucesso):
    ```bash
    pip install pandas openpyxl
 

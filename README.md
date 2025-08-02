@@ -36,7 +36,7 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 ⚠️ Aviso
 Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um alerta no console:
-    `⚠️ Cheques insuficientes. Algumas NFs podem não ter sido totalmente apropriadas.`
+> - `⚠️ Cheques insuficientes. Algumas NFs podem não ter sido totalmente apropriadas.`
 
 📚 Bibliotecas utilizadas
 - `pandas` — para manipulação de dados

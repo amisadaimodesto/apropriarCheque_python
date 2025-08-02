@@ -29,10 +29,10 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 📌 Exemplo de saída
 > - A planilha final mostrará:
-> Cada nota fiscal (NF) com seu valor original
-> O valor apropriado de cada cheque
-> Qual cheque foi usado em qual nota
-> Células mescladas para facilitar a leitura dos cheques que cobrem múltiplas NFs
+> - Cada nota fiscal (NF) com seu valor original
+> - O valor apropriado de cada cheque
+> - Qual cheque foi usado em qual nota
+> - Células mescladas para facilitar a leitura dos cheques que cobrem múltiplas NFs
 
 ⚠️ Aviso
 Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um alerta no console:

@@ -43,8 +43,3 @@ Se os cheques não forem suficientes para cobrir todas as NFs, o script exibe um
 - `openpyxl` — para leitura e edição de arquivos Excel
 
 python · pandas · openpyxl · excel · automação · financeiro · notas fiscais · cheques · apropriação
-
----
-
-📄 Licença
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.

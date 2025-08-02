@@ -20,10 +20,10 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
    ```bash
    pip install pandas openpyxl
 
-2. Coloque os arquivos **notas.xlsx** e **cheques.xlsx** na mesma pasta do script.
+2. Coloque os arquivos *notas.xlsx* e *cheques.xlsx* na mesma pasta do script.
 
 3. Execute o script:
-  ** python apropriacao.py **
+  *python apropriacao.py*
 
 4. O arquivo ** resultado_apropriacao.xlsx ** será gerado com os valores apropriados.
 

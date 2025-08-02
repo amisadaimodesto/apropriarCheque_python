@@ -18,7 +18,7 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 
 1. Instale as dependências (ou apenas execute o código no compilador de sua escolha (testado no Google Colab com sucesso):
    ```bash
-   pip install pandas openpyxl \
+   pip install pandas openpyxl
 
 
 2. Coloque os arquivos *notas.xlsx* e *cheques.xlsx* na mesma pasta do script (*ou faça o upload dos arquivos no Google Colab*).

@@ -30,27 +30,19 @@ Este projeto realiza a **apropriação de valores de cheques em notas fiscais** 
 ```python
 import pandas as pd
 from openpyxl import load_workbook
+from openpyxl.styles import Alignment, numbers
 from openpyxl.utils import get_column_letter
-from openpyxl.worksheet.table import Table, TableStyleInfo
 
-# Leitura dos dados com nomes de colunas originais
+# Leitura dos dados
 notas_df = pd.read_excel("notas.xlsx")
 cheques_df = pd.read_excel("cheques.xlsx")
 
-# Padronizar colunas para uso interno
+# Padronizar colunas
 notas_df.columns = [col.strip().lower().replace(" ", "_") for col in notas_df.columns]
 cheques_df.columns = [col.strip().lower().replace(" ", "_") for col in cheques_df.columns]
 
-# Renomear as colunas para facilitar
-notas_df.rename(columns={
-    "número_nf": "nf",
-    "valor": "valor_nf"
-}, inplace=True)
-
-cheques_df.rename(columns={
-    "número_cheque": "cheque",
-    "valor": "valor_cheque"
-}, inplace=True)
+# Renomear colunas se necessário
+cheques_df.rename(columns={"valor": "valor_cheque"}, inplace=True)
 
 # Criar lista para armazenar as linhas resultantes
 resultado = []
@@ -88,39 +80,58 @@ for _, nota in notas_df.iterrows():
     if cheque_idx >= len(cheques_df):
         break
 
-# Gerar DataFrame com o resultado
+# Criar DataFrame e exportar
 resultado_df = pd.DataFrame(resultado)
+resultado_df.to_excel("resultado_apropriacao.xlsx", index=False)
 
-# Exportar para Excel
-output_file = "resultado_apropriacao.xlsx"
-resultado_df.to_excel(output_file, index=False)
-
-# MESCLAR células com mesmo cheque consecutivo
-wb = load_workbook(output_file)
+# Reabrir com openpyxl para aplicar formatação e mesclagens
+wb = load_workbook("resultado_apropriacao.xlsx")
 ws = wb.active
 
-# Encontrar a coluna do "cheque_alocado"
-cheque_col_idx = list(resultado_df.columns).index("cheque_alocado") + 1
-cheque_col_letter = get_column_letter(cheque_col_idx)
+# Localizar os índices das colunas
+headers = {cell.value: idx + 1 for idx, cell in enumerate(ws[1])}
+col_cheque = headers.get("cheque_alocado")
+col_valor = headers.get("valor_do_cheque")
+col_valor_aprop = headers.get("valor_apropriado")
 
-# Mesclar células com mesmo valor consecutivo
-start_row = 2
-for i in range(3, ws.max_row + 2):  # +2 pois ws.max_row é estático
-    current = ws[f"{cheque_col_letter}{i}"].value
-    previous = ws[f"{cheque_col_letter}{i - 1}"].value
+# Formatando as colunas com valores monetários (com separador de milhar, vírgula como decimal)
+valor_format = '#,##0.00'  # Excel aplica ponto como separador de milhar, mas isso será formatado conforme local do Excel
 
-    if current != previous:
-        if i - start_row > 1:
-            ws.merge_cells(f"{cheque_col_letter}{start_row}:{cheque_col_letter}{i - 1}")
-        start_row = i
-else:
-    # Último bloco
-    if ws.max_row - start_row >= 1:
-        ws.merge_cells(f"{cheque_col_letter}{start_row}:{cheque_col_letter}{ws.max_row}")
+for row in range(2, ws.max_row + 1):
+    if col_valor_aprop:
+        cell_aprop = ws.cell(row=row, column=col_valor_aprop)
+        cell_aprop.number_format = valor_format
+    if col_valor:
+        cell_valor = ws.cell(row=row, column=col_valor)
+        cell_valor.number_format = valor_format
 
-wb.save(output_file)
+# Mesclar células para cheques e valores correspondentes
+if col_cheque and col_valor:
+    start_row = 2
+    prev_cheque = ws.cell(row=start_row, column=col_cheque).value
 
-print("✅ Apropriação concluída com sucesso! Arquivo salvo como 'resultado_apropriacao.xlsx'")
+    for row in range(3, ws.max_row + 2):  # +2 para forçar o último grupo
+        current_cheque = ws.cell(row, column=col_cheque).value if row <= ws.max_row else None
+        if current_cheque != prev_cheque:
+            if row - start_row > 1:
+                # Mesclar colunas cheque_alocado e valor_do_cheque
+                ws.merge_cells(start_row=start_row, start_column=col_cheque,
+                               end_row=row - 1, end_column=col_cheque)
+                ws.merge_cells(start_row=start_row, start_column=col_valor,
+                               end_row=row - 1, end_column=col_valor)
+
+                # Centralizar conteúdo das células mescladas
+                merged_cell_cheque = ws.cell(row=start_row, column=col_cheque)
+                merged_cell_cheque.alignment = Alignment(horizontal='center', vertical='center')
+
+                merged_cell_valor = ws.cell(row=start_row, column=col_valor)
+                merged_cell_valor.alignment = Alignment(horizontal='center', vertical='center')
+
+            start_row = row
+            prev_cheque = current_cheque
+
+wb.save("resultado_apropriacao.xlsx")
+print("✅ Planilha formatada com sucesso e salva como 'resultado_apropriacao.xlsx'")
 ```
 
 4. O arquivo *resultado_apropriacao.xlsx* será gerado com os valores apropriados.

@@ -1,9 +1,18 @@
+# Célula 1: Baixa os arquivos de exemplo direto do seu GitHub caso esteja rodando no Colab
+import os
+if not os.path.exists('notas.xlsx'):
+    !wget -q https://raw.githubusercontent.com/amisadaimodesto/apropriarCheque_python/main/data/input/notas.xlsx
+    !wget -q https://raw.githubusercontent.com/amisadaimodesto/apropriarCheque_python/main/data/input/cheques.xlsx
+    print("Planilhas de exemplo carregadas com sucesso!")
+
 # 🧾 Alocador Automático de Cheques por Notas Fiscais
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![OpenPyXL](https://img.shields.io/badge/OpenPyXL-Excel_Automation-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
 ![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey?style=for-the-badge)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amisadaimodesto/apropriarCheque_python/blob/main/notebooks/demo_apropriacao_cheques.ipynb)
 
 Automação financeira desenvolvida em Python para **conciliação e rateio (apropriação) de valores de cheques/créditos em Notas Fiscais (NFs)**. O motor processa planilhas de entrada respeitando rigorosamente a ordem cronológica (FIFO) e o saldo remanescente de cada título, gerando um relatório executivo em Excel com formatação contábil e células mescladas para auditoria rápida.
 

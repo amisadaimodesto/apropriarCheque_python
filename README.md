@@ -5,7 +5,7 @@
 ![OpenPyXL](https://img.shields.io/badge/OpenPyXL-Excel_Automation-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
 ![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey?style=for-the-badge)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amisadaimodesto/apropriarCheque_python/blob/main/notebooks/demo_apropriacao_cheques.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/amisadaimodesto/apropriarCheque_python/blob/main/apropriar_cheque.ipynb)
 
 Automação financeira desenvolvida em Python para **conciliação e rateio (apropriação) de valores de cheques/créditos em Notas Fiscais (NFs)**...
 Automação financeira desenvolvida em Python para **conciliação e rateio (apropriação) de valores de cheques/créditos em Notas Fiscais (NFs)**. O motor processa planilhas de entrada respeitando rigorosamente a ordem cronológica (FIFO) e o saldo remanescente de cada título, gerando um relatório executivo em Excel com formatação contábil e células mescladas para auditoria rápida.
